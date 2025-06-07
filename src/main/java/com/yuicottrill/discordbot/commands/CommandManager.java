@@ -15,6 +15,7 @@ public class CommandManager {
         commands.put("say", new SayCommand());
         commands.put("help", new HelpCommand());
         commands.put("clear", new ClearCommand());
+        commands.put("kick", new KickCommand());
 
     }
 

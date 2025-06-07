@@ -6,7 +6,7 @@ public class HelpCommand implements Command{
 
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
-        String[] commandsList = {"!ping", "!say"};
+        String[] commandsList = {"!ping", "!say", "!clear", "!kick"};
         event.getChannel().sendMessage(String.join(" ", commandsList)).queue();
     }
 }
