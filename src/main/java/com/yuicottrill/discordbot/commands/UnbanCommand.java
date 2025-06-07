@@ -1,11 +1,17 @@
 package com.yuicottrill.discordbot.commands;
 
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 public class UnbanCommand implements Command{
 
     @Override
     public void execute(MessageReceivedEvent event, String[] args) {
+
+        if (event.getMember().hasPermission(Permission.BAN_MEMBERS)){
+            event.getChannel().sendMessage("Você não pode desbanir usuários!").queue();
+            throw new IllegalArgumentException("Usuário não pode desbanir!");
+        }
 
         String userId = args[0];
 
