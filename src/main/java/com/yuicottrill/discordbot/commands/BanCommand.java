@@ -20,7 +20,10 @@ public class BanCommand implements Command{
             event.getGuild()
                     .ban(member.getUser(), 7, TimeUnit.DAYS)
                     .reason("Banido")
-                    .queue();
+                    .queue(
+                            success -> event.getChannel().sendMessage("Usuário banido com sucesso ").queue(),
+                            error -> event.getChannel().sendMessage("Algo inesperado ocorreu: " + error.getMessage()).queue()
+                    );
 
         }
     }

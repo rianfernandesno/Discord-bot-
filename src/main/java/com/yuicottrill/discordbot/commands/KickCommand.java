@@ -17,7 +17,10 @@ public class KickCommand implements Command{
             event.getGuild()
                     .kick(target)
                     .reason("kick test")
-                    .queue();
+                    .queue(
+                            success -> event.getChannel().sendMessage("Usuário kickado com sucesso " + target).queue(),
+                            error -> event.getChannel().sendMessage("Algo inesperado ocorreu: " + error.getMessage()).queue()
+                    );
         }
 
     }
