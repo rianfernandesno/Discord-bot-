@@ -16,6 +16,8 @@ public class CommandManager {
         commands.put("help", new HelpCommand());
         commands.put("clear", new ClearCommand());
         commands.put("kick", new KickCommand());
+        commands.put("ban", new BanCommand());
+        commands.put("unban", new UnbanCommand());
 
     }
 
