@@ -1,9 +1,11 @@
 package com.yuicottrill.discordbot.config;
 
+import com.yuicottrill.discordbot.utils.MemberJoinOrLeave;
 import jakarta.annotation.PostConstruct;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import net.dv8tion.jda.api.JDABuilder;
@@ -13,15 +15,18 @@ public class BotConfiguration {
     @Value("${DISCORD_TOKEN}")
     String token;
 
-    @PostConstruct
-    public void Connection() throws Exception{
-        JDA api = JDABuilder.createDefault(token,
+    @Bean
+    public JDA Connection() throws Exception{
+        return JDABuilder.createDefault(token,
                         GatewayIntent.GUILD_MESSAGES,
                         GatewayIntent.MESSAGE_CONTENT,
-                        GatewayIntent.DIRECT_MESSAGES)
+                        GatewayIntent.DIRECT_MESSAGES,
+                        GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new MyListener())
-                .build();
-        api.awaitReady();
+                .addEventListeners(new MemberJoinOrLeave())
+                .build()
+                .awaitReady();
     }
+
 
 }
