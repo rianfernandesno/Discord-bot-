@@ -16,5 +16,9 @@ public class MyListener  extends ListenerAdapter {
         if (event.getAuthor().isBot()) return;
 
         commandManager.handle(event);
+
+        if(event.getMessage().getMentions().getUsers().contains(event.getJDA().getSelfUser())){
+            event.getChannel().sendMessage("Utilize !help para verificar os comandos disponiveis!").queue();
+        }
     }
 }
