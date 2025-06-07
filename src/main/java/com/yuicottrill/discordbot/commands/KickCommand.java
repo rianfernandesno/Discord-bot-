@@ -1,5 +1,6 @@
 package com.yuicottrill.discordbot.commands;
 
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
@@ -12,6 +13,11 @@ public class KickCommand implements Command{
         List<Member> mentionedMember = event.getMessage().getMentions().getMembers();
 
         if(!mentionedMember.isEmpty()){
+            if (!event.getMember().hasPermission(Permission.KICK_MEMBERS)){
+                event.getChannel().sendMessage("Você não pode kickar membros!").queue();
+                throw  new IllegalArgumentException("Usuário não pode kickar membros");
+            }
+
             Member target = mentionedMember.get(0);
 
             event.getGuild()
