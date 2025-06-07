@@ -6,7 +6,9 @@ import net.dv8tion.jda.api.entities.channel.concrete.TextChannel;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.api.events.guild.member.GuildMemberRemoveEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemberJoinOrLeaveListener extends ListenerAdapter {
 
     @Override

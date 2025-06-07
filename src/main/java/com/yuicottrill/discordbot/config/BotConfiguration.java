@@ -12,17 +12,25 @@ import net.dv8tion.jda.api.JDABuilder;
 @Configuration
 public class BotConfiguration {
     @Value("${DISCORD_TOKEN}")
-    String token;
+    private String token;
+
+    private final MyListener myListener;
+    private final MemberJoinOrLeaveListener memberJoinOrLeaveListener;
+
+    public BotConfiguration(MyListener myListener, MemberJoinOrLeaveListener memberJoinOrLeaveListener) {
+        this.myListener = myListener;
+        this.memberJoinOrLeaveListener = memberJoinOrLeaveListener;
+    }
 
     @Bean
-    public JDA Connection() throws Exception{
+    public JDA jda() throws Exception {
         return JDABuilder.createDefault(token,
                         GatewayIntent.GUILD_MESSAGES,
                         GatewayIntent.MESSAGE_CONTENT,
                         GatewayIntent.DIRECT_MESSAGES,
                         GatewayIntent.GUILD_MEMBERS)
-                .addEventListeners(new MyListener())
-                .addEventListeners(new MemberJoinOrLeaveListener())
+                .addEventListeners(myListener)
+                .addEventListeners(memberJoinOrLeaveListener)
                 .build()
                 .awaitReady();
     }

@@ -1,11 +1,13 @@
 package com.yuicottrill.discordbot.commands;
 
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class CommandManager {
 
     private final Map<String, Command> commands = new HashMap<>();
