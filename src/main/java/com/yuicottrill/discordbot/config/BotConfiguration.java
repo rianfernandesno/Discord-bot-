@@ -1,7 +1,6 @@
 package com.yuicottrill.discordbot.config;
 
-import com.yuicottrill.discordbot.utils.MemberJoinOrLeave;
-import jakarta.annotation.PostConstruct;
+import com.yuicottrill.discordbot.utils.MemberJoinOrLeaveListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,7 +22,7 @@ public class BotConfiguration {
                         GatewayIntent.DIRECT_MESSAGES,
                         GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(new MyListener())
-                .addEventListeners(new MemberJoinOrLeave())
+                .addEventListeners(new MemberJoinOrLeaveListener())
                 .build()
                 .awaitReady();
     }
