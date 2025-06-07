@@ -19,7 +19,7 @@ public class MemberJoinOrLeaveListener extends ListenerAdapter {
         Role role = event.getGuild().getRoleById("1299126041574379602");
 
         member.getGuild().addRoleToMember(member, role ).queue();
-        channel.sendMessage("🎉 Olha quem acabou de pousar aqui: " + userName + "!\nSeja muito bem-vindo(a) ao servidor! 🚀 Sinta-se em casa e não esquece de pegar um café virtual ☕").queue();
+        channel.sendMessage("🎉 Olha quem acabou de pousar aqui: " + userName + "!Seja muito bem-vindo(a) ao servidor! 🚀 Sinta-se em casa e não esquece de pegar um café virtual ☕").queue();
 
     }
 
@@ -29,6 +29,6 @@ public class MemberJoinOrLeaveListener extends ListenerAdapter {
         TextChannel channel = event.getGuild().getTextChannelById("1299132926201430088");
         String userName = event.getUser().getAsMention();
 
-        channel.sendMessage("😢 " + userName + " acabou de sair do servidor...\nEsperamos que volte algum dia. As estrelas ficam um pouco mais apagadas sem você ✨").queue();
+        channel.sendMessage("😢 " + userName + " acabou de sair do servidor...Esperamos que volte algum dia. As estrelas ficam um pouco mais apagadas sem você ✨").queue();
     }
 }
