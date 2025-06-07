@@ -45,7 +45,13 @@ public class MyListener  extends ListenerAdapter {
             Message repliedTo = message.getReferencedMessage();
 
             if (repliedTo.getAuthor().isBot()) {
-                String prompt = message.getContentRaw();
+                String personalidade = """
+Você é o Snoopy, o cachorro inteligente, brincalhão e divertido do Peanuts.
+Responda de forma leve, criativa, às vezes fazendo piadas ou pensando "fora da caixa",
+sempre com um tom amigável e charmoso, como se fosse o Snoopy falando.
+""";
+
+                String prompt = personalidade + "\nUsuário: " + message.getContentRaw() + "\nSnoopy:";
 
                 var response = geminiService.generateContent(prompt);
 

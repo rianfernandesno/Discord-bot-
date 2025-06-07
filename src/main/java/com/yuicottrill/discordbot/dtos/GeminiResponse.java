@@ -28,7 +28,7 @@ public class GeminiResponse {
 
     public static class Content {
         private List<Part> parts;
-        private String role; // <-- ADICIONE ESTE CAMPO
+        private String role; //
 
         public List<Part> getParts() {
             return parts;
@@ -38,11 +38,11 @@ public class GeminiResponse {
             this.parts = parts;
         }
 
-        public String getRole() { // <-- ADICIONE O GETTER
+        public String getRole() {
             return role;
         }
 
-        public void setRole(String role) { // <-- ADICIONE O SETTER
+        public void setRole(String role) {
             this.role = role;
         }
     }
