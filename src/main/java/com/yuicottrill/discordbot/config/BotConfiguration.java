@@ -1,6 +1,6 @@
 package com.yuicottrill.discordbot.config;
 
-import com.yuicottrill.discordbot.utils.GuildJoinOrLeaveListener;
+import com.yuicottrill.discordbot.utils.GuildEventListener;
 import com.yuicottrill.discordbot.utils.MemberJoinOrLeaveListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.requests.GatewayIntent;
@@ -18,12 +18,12 @@ public class BotConfiguration {
 
     private final MyListener myListener;
     private final MemberJoinOrLeaveListener memberJoinOrLeaveListener;
-    private final  GuildJoinOrLeaveListener guildJoinOrLeaveListener;
+    private final  GuildEventListener guildEventListener;
 
-    public BotConfiguration(MyListener myListener, MemberJoinOrLeaveListener memberJoinOrLeaveListener, GuildJoinOrLeaveListener guildJoinOrLeaveListener) {
+    public BotConfiguration(MyListener myListener, MemberJoinOrLeaveListener memberJoinOrLeaveListener, GuildEventListener guildEventListener) {
         this.myListener = myListener;
         this.memberJoinOrLeaveListener = memberJoinOrLeaveListener;
-        this.guildJoinOrLeaveListener = guildJoinOrLeaveListener;
+        this.guildEventListener = guildEventListener;
     }
 
     @Bean
@@ -36,7 +36,7 @@ public class BotConfiguration {
                         GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(myListener)
                 .addEventListeners(memberJoinOrLeaveListener)
-                .addEventListeners(guildJoinOrLeaveListener)
+                .addEventListeners(guildEventListener)
                 .addEventListeners()
                 .build()
                 .awaitReady();

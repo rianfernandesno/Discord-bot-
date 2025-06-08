@@ -12,7 +12,12 @@ public class CommandManager {
 
     private final Map<String, Command> commands = new HashMap<>();
 
-    public CommandManager(){
+    public CommandManager(
+            SetWelcomeChannel setWelcomeChannel,
+            SetLeaveMessageChannel setLeaveMessageChannel,
+            SetAutoRole setAutoRole,
+            SetMuteRole setMuteRole
+    ){
         commands.put("ping", new PingCommand());
         commands.put("say", new SayCommand());
         commands.put("help", new HelpCommand());
@@ -24,6 +29,10 @@ public class CommandManager {
         commands.put("unmute", new UnmutedCommand());
         commands.put("statsserver", new StatsCommand());
         commands.put("userinfo", new UserInfoCommand());
+        commands.put("setchannelwelcome", setWelcomeChannel);
+        commands.put("setchannelleave", setLeaveMessageChannel);
+        commands.put("setautorole", setAutoRole);
+        commands.put("setmuterole", setMuteRole);
     }
 
     public void handle(MessageReceivedEvent event){
