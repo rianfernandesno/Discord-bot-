@@ -34,3 +34,13 @@ Este bot ainda está incompleto. Novas funcionalidades serão adicionadas futura
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seu-usuario/seu-repositorio.git
+   ```
+2. Configure o token do bot no arquivo application.properties:
+```properties
+discord.bot.token=SEU_TOKEN_AQUI
+```
+3. Execute o projeto com Maven:
+```bash
+mvn spring-boot:run
+```
+
