@@ -22,6 +22,7 @@ public class CommandManager {
         commands.put("unban", new UnbanCommand());
         commands.put("mute", new MuteCommand());
         commands.put("unmute", new UnmutedCommand());
+        commands.put("statsserver", new StatsCommand());
     }
 
     public void handle(MessageReceivedEvent event){
