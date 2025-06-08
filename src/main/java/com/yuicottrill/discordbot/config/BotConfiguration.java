@@ -29,6 +29,7 @@ public class BotConfiguration {
                         GatewayIntent.GUILD_MESSAGES,
                         GatewayIntent.MESSAGE_CONTENT,
                         GatewayIntent.DIRECT_MESSAGES,
+                        GatewayIntent.GUILD_PRESENCES,
                         GatewayIntent.GUILD_MEMBERS)
                 .addEventListeners(myListener)
                 .addEventListeners(memberJoinOrLeaveListener)

@@ -23,6 +23,7 @@ public class CommandManager {
         commands.put("mute", new MuteCommand());
         commands.put("unmute", new UnmutedCommand());
         commands.put("statsserver", new StatsCommand());
+        commands.put("userinfo", new UserInfoCommand());
     }
 
     public void handle(MessageReceivedEvent event){
