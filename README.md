@@ -12,6 +12,7 @@ Este bot ainda está incompleto. Novas funcionalidades serão adicionadas futura
 - Spring Boot
 - JDA (Java Discord API)
 - Google GenAI (para respostas baseadas em IA)
+- Banco de dados MongoDB
 - Maven (gerenciador de dependências e build)
 
 ## 📦 Funcionalidades
