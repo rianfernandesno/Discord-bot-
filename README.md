@@ -1,6 +1,10 @@
 # Discord Moderation Bot
 
-Um bot de moderação para Discord desenvolvido em **Java** utilizando **JDA (Java Discord API)** e **Spring Boot**. Este projeto foi criado com foco em comandos básicos de administração e integração com IA para possíveis respostas inteligentes.
+Um bot de moderação para Discord desenvolvido em **Java** utilizando **JDA (Java Discord API)** e **Spring Boot**. Este projeto foi criado com foco em comandos básicos de administração e integração com IA para possíveis respostas inteligentes entre outras funcionalides. 
+
+⚠️ Em desenvolvimento
+
+Este bot ainda está incompleto. Novas funcionalidades serão adicionadas futuramente.
 
 ## 🔧 Tecnologias Utilizadas
 
