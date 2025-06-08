@@ -20,7 +20,8 @@ public class CommandManager {
         commands.put("kick", new KickCommand());
         commands.put("ban", new BanCommand());
         commands.put("unban", new UnbanCommand());
-
+        commands.put("mute", new MuteCommand());
+        commands.put("unmute", new UnmutedCommand());
     }
 
     public void handle(MessageReceivedEvent event){
