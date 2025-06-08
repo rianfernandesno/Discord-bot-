@@ -32,6 +32,7 @@ public class MyListener  extends ListenerAdapter {
                     || !event.getMessage().getReferencedMessage().getAuthor().isBot()) {
                 event.getChannel().sendMessage("Utilize !help para verificar os comandos disponiveis ou der um replay nessa mensagem para conversar comigo!").queue();
             }
+
         }
 
         handleReplyToBot(event);
@@ -53,24 +54,17 @@ sempre com um tom amigável e charmoso, como se fosse o Snoopy falando.
 
                 String prompt = personalidade + "\nUsuário: " + message.getContentRaw() + "\nSnoopy:";
 
-                var response = geminiService.generateContent(prompt);
 
-                String aiResponse = "🤖 Não consegui gerar uma resposta.";
+                String aiResponse = geminiService.generateContext(prompt);
 
-                if (response != null
-                        && response.getCandidates() != null
-                        && !response.getCandidates().isEmpty()) {
-
-                    var content = response.getCandidates().get(0).getContent();
-                    if (content != null
-                            && content.getParts() != null
-                            && !content.getParts().isEmpty()) {
-
-                        aiResponse = content.getParts().get(0).getText();
-                    }
+                if (aiResponse == null || aiResponse.isEmpty()) {
+                    aiResponse = "🤖 Não consegui gerar uma resposta.";
                 }
 
-                event.getChannel().sendMessage(aiResponse).setMessageReference(message).queue();
+                event.getChannel()
+                        .sendMessage(aiResponse)
+                        .setMessageReference(message)
+                        .queue();
             }
         }
     }

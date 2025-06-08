@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 import net.dv8tion.jda.api.JDABuilder;
 
+
 @Configuration
 public class BotConfiguration {
     @Value("${DISCORD_TOKEN}")
