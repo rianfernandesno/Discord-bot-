@@ -27,7 +27,7 @@ public class UpdatesCommand  implements Command{
         eb.setColor(0x00BFFF); // Azul claro
 
         for (String change : latest.getChanges()) {
-            eb.addField("➤", change, false);
+            eb.addField("", "➤ " + change, true);
         }
 
         eb.setFooter("Data de lançamento: " + latest.getCreated().toString());

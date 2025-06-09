@@ -1,5 +1,6 @@
 package com.yuicottrill.discordbot.config;
 
+import com.yuicottrill.discordbot.commands.HelpCommand;
 import com.yuicottrill.discordbot.utils.GuildEventListener;
 import com.yuicottrill.discordbot.utils.MemberJoinOrLeaveListener;
 import net.dv8tion.jda.api.JDA;
@@ -19,11 +20,16 @@ public class BotConfiguration {
     private final MyListener myListener;
     private final MemberJoinOrLeaveListener memberJoinOrLeaveListener;
     private final  GuildEventListener guildEventListener;
+    private final HelpCommand helpCommand;
 
-    public BotConfiguration(MyListener myListener, MemberJoinOrLeaveListener memberJoinOrLeaveListener, GuildEventListener guildEventListener) {
+    public BotConfiguration(MyListener myListener,
+                            MemberJoinOrLeaveListener memberJoinOrLeaveListener,
+                            GuildEventListener guildEventListener,
+                            HelpCommand helpCommand) {
         this.myListener = myListener;
         this.memberJoinOrLeaveListener = memberJoinOrLeaveListener;
         this.guildEventListener = guildEventListener;
+        this.helpCommand = helpCommand;
     }
 
     @Bean
@@ -33,11 +39,13 @@ public class BotConfiguration {
                         GatewayIntent.MESSAGE_CONTENT,
                         GatewayIntent.DIRECT_MESSAGES,
                         GatewayIntent.GUILD_PRESENCES,
-                        GatewayIntent.GUILD_MEMBERS)
+                        GatewayIntent.GUILD_MEMBERS,
+                        GatewayIntent.GUILD_MESSAGE_REACTIONS
+                        )
                 .addEventListeners(myListener)
                 .addEventListeners(memberJoinOrLeaveListener)
                 .addEventListeners(guildEventListener)
-                .addEventListeners()
+                .addEventListeners(helpCommand)
                 .build()
                 .awaitReady();
     }

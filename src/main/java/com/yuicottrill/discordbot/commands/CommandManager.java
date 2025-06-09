@@ -17,11 +17,12 @@ public class CommandManager {
             SetLeaveMessageChannel setLeaveMessageChannel,
             SetAutoRole setAutoRole,
             SetMuteRole setMuteRole,
-            UpdatesCommand updatesCommand
+            UpdatesCommand updatesCommand,
+            HelpCommand helpCommand
     ){
         commands.put("ping", new PingCommand());
         commands.put("say", new SayCommand());
-        commands.put("help", new HelpCommand());
+        commands.put("help", helpCommand);
         commands.put("clear", new ClearCommand());
         commands.put("kick", new KickCommand());
         commands.put("ban", new BanCommand());
