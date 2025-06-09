@@ -16,7 +16,8 @@ public class CommandManager {
             SetWelcomeChannel setWelcomeChannel,
             SetLeaveMessageChannel setLeaveMessageChannel,
             SetAutoRole setAutoRole,
-            SetMuteRole setMuteRole
+            SetMuteRole setMuteRole,
+            UpdatesCommand updatesCommand
     ){
         commands.put("ping", new PingCommand());
         commands.put("say", new SayCommand());
@@ -33,6 +34,7 @@ public class CommandManager {
         commands.put("setchannelleave", setLeaveMessageChannel);
         commands.put("setautorole", setAutoRole);
         commands.put("setmuterole", setMuteRole);
+        commands.put("news", updatesCommand);
     }
 
     public void handle(MessageReceivedEvent event){
